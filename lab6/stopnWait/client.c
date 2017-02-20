@@ -70,7 +70,9 @@ int main(int argc, char *argv[]) {
    
    if (n < 0) {
       perror("Acknowlwgement not received\n");
-      exit(1);
+      resendData();
+      
+      //exit(1);
    }
    else
    {perror("Acknowlwgement received\n");

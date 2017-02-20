@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
    fgets(buffer,255,stdin);
    
 	while(k<strlen(buffer)){
- char buff[1]=buffer[k];
+ buff[0]=buffer[k];
    /* Send message to the server */
    n = write(sockfd, buff,1);
    k++;
@@ -70,6 +70,8 @@ int main(int argc, char *argv[]) {
    
    if (n < 0) {
       perror("Acknowlwgement not received\n");
+      resendData();
+      
       exit(1);
    }
    else
